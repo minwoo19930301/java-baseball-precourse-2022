@@ -1,5 +1,6 @@
 package baseball;
 
+import baseball.model.Computer;
 import baseball.view.Output;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
@@ -50,6 +51,13 @@ class ApplicationTest extends NsTest {
         nums[1] = (intInput/10)%10;
         nums[0] = (intInput/100)%10;
         assertThat(nums).isEqualTo(new int[]{0,0,2});
+    }
+
+    @Test
+    void 컴퓨터가_유니크값_생성여부(){
+        Computer computer = new Computer();
+        int[] nums = computer.getBalls().getBallNums();
+        assertThat(nums[0]).isNotEqualTo(nums[1]).isNotEqualTo(nums[2]);
     }
 
 
