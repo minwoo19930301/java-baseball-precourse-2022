@@ -1,7 +1,18 @@
-# 숫자 야구 게임
-## 진행 방법
-* 숫자 야구 게임 요구사항을 파악한다.
-* 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 과제를 제출한다.
+# 숫자야구 게임 구현해야할 것들
 
-## 과제 제출 과정
-* [과제 제출 방법](https://github.com/next-step/nextstep-docs/tree/master/precourse)
+- [ ]  Launcher로 구분하고 BaseBallGuessingGame, Computer, Player, Balls 기본 클래스 구조 생성, 표준으로 써야할 값들은 상수로 두기 ex) 스트라이크, 낫싱, 맞추는 횟수 등
+- [ ]  BaseBallGuessingGame 클래스 : Computer, Player 세팅 후 Player는 맞출 때 까지 Ball 생성하고 맞추기
+- [ ]  Balls 클래스 : int[]를 가지며 1~9, length는 3개
+- [ ]  Player 클래스 : 입력을 받아 balls 생성, 입력 메소드  - 입력 오류 시 IllegalArguementException 던지기
+- [ ]  Computer 클래스 : balls 생성, 사용자가 준 ball과 매칭 후 게임 결과로 힌트를 스트라이크 개수, 볼 개수 찾는 로직을 수행하는 메소드 생성
+- [ ]  BaseBallGuessingGame 클래스 : 게임이 종료되면 사용자의 입력을 받아 다시 시작 혹은 완전히 종료시킬 수 있게. - 입력 오류 시 IllegalArguementException 던지기
+
+# 신경써야할 점들
+
+- Java8 로 실행 가능토록 신경 쓸 것. - ex)모르고 11에서 돌릴 때 while 문 시 Console.readLine() 함수가 오류를 냄
+- 들여쓰기 2 넘지 않도록 구현 (google style - 파일 받아서 아예 intelliJ preferences 에 수정해서 넣었음)
+- Stream 사용하지 않기
+- else나 switch 사용하지 않고 if return  식으로 구현
+- function은 10 줄 이상 지양 + 1 가지 일만 하도록 지향 - 커밋 단위로도 활용
+- 단위테스트 시 assert 활용
+- 이미 있는 Test Case는 모두 성공해야 함.
