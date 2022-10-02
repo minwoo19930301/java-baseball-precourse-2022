@@ -8,14 +8,10 @@ public abstract class Player {
 
     private Balls balls = new Balls();
 
-    public Player() {
-        initBalls();
-    }
-
     public Balls getBalls() {
         return balls;
     }
 
+    //a constructor like method intended to call multiple times
     public abstract void initBalls();
-
 }
