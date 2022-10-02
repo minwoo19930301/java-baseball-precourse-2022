@@ -13,6 +13,7 @@ import baseball.model.User;
 public class BaseballGuessingGame implements BaseballGame {
 
     public final static String GAME_LANGUAGE = "KOR";
+    public static final int COUNT_OF_BALLS = 3;
 
     @Override
     public void start() {
@@ -21,6 +22,7 @@ public class BaseballGuessingGame implements BaseballGame {
 
     public void restartableGame(){
         Player computer = new Computer();
-
+        Player user = new User();
+        System.out.println(user);
     }
 }
