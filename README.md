@@ -1,11 +1,11 @@
 # 숫자야구 게임 구현해야할 것들
 
 - [x]  Launcher로 구분하고 BaseBallGuessingGame, Computer, Player, Balls 기본 클래스 구조 생성, 표준으로 써야할 값들은 상수로 두기 ex) 스트라이크, 낫싱, 맞추는 횟수 등
-- [ ]  BaseBallGuessingGame 클래스 : Computer, Player 세팅 후 Player는 맞출 때 까지 Ball 생성하고 맞추기
+- [x]  BaseBallGuessingGame 클래스 : Computer, Player 세팅 후 Player는 맞출 때 까지 Ball 생성하고 맞추기
 - [x]  Balls 클래스 : int[]를 가지며 1~9, length는 3개, 자체적으로 validation 후 IllegalArguement
 - [x]  User 클래스 : 입력을 받아 balls 생성, 입력 메소드  - 입력 오류 시 IllegalArguementException 던지기
 - [x]  Computer 클래스 : balls 생성, 자동으로 숫자 생성하여 넣기
-- [ ]  BallsMatch 클래스(신규 추가) : 일종의 심판 기능을 수행하는 클래스    
+- [x]  BallsMatch 클래스(신규 추가) : 일종의 심판 기능을 수행하는 클래스    
 - [ ]  BaseBallGuessingGame 클래스 : 게임이 종료되면 사용자의 입력을 받아 다시 시작 혹은 완전히 종료시킬 수 있게. - 입력 오류 시 IllegalArguementException 던지기
 
 # 신경써야할 점들
