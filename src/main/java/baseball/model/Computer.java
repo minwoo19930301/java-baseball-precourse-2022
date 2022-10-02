@@ -16,7 +16,12 @@ public class Computer extends Player {
 
     @Override
     public void initBalls() {
-        int randInt = Randoms.pickNumberInRange(0, 999);
-        this.getBalls().setBallNums(randInt);
+        List<Integer> randInts = Randoms.pickUniqueNumbersInRange(0, 9, COUNT_OF_BALLS);
+        StringBuilder temp = new StringBuilder();
+        for(Integer integer : randInts){
+            temp.append(integer.toString());
+        }
+        this.getBalls().setBallNums(Integer.parseInt(temp.toString()));
     }
+
 }
