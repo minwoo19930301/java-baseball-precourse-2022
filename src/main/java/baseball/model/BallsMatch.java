@@ -25,7 +25,7 @@ public class BallsMatch {
     }
 
     private void count_balls(int[] riddlerBallNums, int[] guesserBallsNums) {
-        Set<Integer> set = new HashSet();
+        Set<Integer> set = new HashSet<>();
         for (int i = 0; i < COUNT_OF_BALLS; i++) {
             set.add(riddlerBallNums[i]);
         }
