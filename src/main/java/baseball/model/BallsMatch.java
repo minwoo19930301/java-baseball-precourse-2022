@@ -48,11 +48,21 @@ public class BallsMatch {
         return "".equals(sb.toString()) ? Output.NOTHING.getOutput() : sb.toString();
     }
 
-    public void matchAllBalls(Player riddler, Player guesser) {
+    private boolean allNotMatched(){
+        if(strike_count == OBJECTIVE_MATCH){
+            System.out.println(Output.SUCCESS.getOutput());
+            return false;
+        }
+        return true;
+    }
+
+
+    public boolean matchAllBalls(Player riddler, Player guesser) {
         int[] riddlerBallNums = riddler.getBalls().getBallNums();
         int[] guesserBallNums = guesser.getBalls().getBallNums();
         count_strikes(riddlerBallNums, guesserBallNums);
         count_balls(riddlerBallNums, guesserBallNums);
         System.out.println(createOutput());
+        return allNotMatched();
     }
 }

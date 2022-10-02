@@ -1,6 +1,7 @@
 package baseball.controller;
 
 
+import baseball.model.BallsMatch;
 import baseball.model.Computer;
 import baseball.model.Player;
 import baseball.model.User;
@@ -12,8 +13,9 @@ import baseball.model.User;
 
 public class BaseballGuessingGame implements BaseballGame {
 
-    public final static String GAME_LANGUAGE = "KOR";
+    public static final String GAME_LANGUAGE = "KOR";
     public static final int COUNT_OF_BALLS = 3;
+    public static final int OBJECTIVE_MATCH = 3;
 
     @Override
     public void start() {
@@ -23,6 +25,10 @@ public class BaseballGuessingGame implements BaseballGame {
     public void restartableGame(){
         Player computer = new Computer();
         Player user = new User();
-        System.out.println(user);
+        BallsMatch ballsMatch;
+        do{
+            ballsMatch = new BallsMatch();
+            user.initBalls();
+        }while(ballsMatch.matchAllBalls(computer, user));
     }
 }
