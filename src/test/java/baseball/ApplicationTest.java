@@ -1,6 +1,8 @@
 package baseball;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -32,4 +34,16 @@ class ApplicationTest extends NsTest {
     public void runMain() {
         Application.main(new String[]{});
     }
+
+    @Test
+    void 스캔후추출여부확인(){
+        String input = "123";
+        int[] guesses = new int[3];
+        int intInput = Integer.parseInt(input);
+        guesses[2] = intInput % 10;
+        guesses[1] = (intInput/10)%10;
+        guesses[0] = (intInput/100)%10;
+        Assertions.assertArrayEquals(guesses, new int[]{1, 2, 3});
+    }
+
 }
