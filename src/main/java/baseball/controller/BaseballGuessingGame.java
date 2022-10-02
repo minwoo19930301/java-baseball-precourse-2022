@@ -24,24 +24,24 @@ public class BaseballGuessingGame implements BaseballGame {
     @Override
     public void start() {
         String input;
-        do{
+        do {
             restartableGame();
             System.out.println(Output.RESTART_INQUIRY.getOutput());
             input = Console.readLine();
-            if(!(input.equals(RESTART_YES) || input.equals(RESTART_NO))){
+            if (!(input.equals(RESTART_YES) || input.equals(RESTART_NO))) {
                 throw new IllegalArgumentException();
             }
-        }while(input.equals(RESTART_YES));
+        } while (input.equals(RESTART_YES));
 
     }
 
-    public void restartableGame(){
+    public void restartableGame() {
         Player computer = new Computer();
         Player user = new User();
         BallsMatch ballsMatch;
-        do{
+        do {
             ballsMatch = new BallsMatch();
             user.initBalls();
-        }while(ballsMatch.matchAllBalls(computer, user));
+        } while (ballsMatch.matchAllBalls(computer, user));
     }
 }

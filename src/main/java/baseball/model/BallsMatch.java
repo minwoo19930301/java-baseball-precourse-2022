@@ -13,43 +13,48 @@ import java.util.Set;
  */
 public class BallsMatch {
 
-    private int strike_count;
-    private int ball_count;
+    private int strikeCount;
+    private int ballCount;
 
-    private void count_strikes(int[] ballNums1, int[] ballsNums2) {
+    private int count_strikes(int[] ballNums1, int[] ballsNums2) {
+        int strike = 0;
         for (int i = 0; i < COUNT_OF_BALLS; i++) {
             if (ballNums1[i] == ballsNums2[i]) {
-                strike_count++;
+                strike++;
             }
         }
+        return strike;
     }
 
-    private void count_balls(int[] riddlerBallNums, int[] guesserBallsNums) {
+    private int count_balls(int[] riddlerBallNums, int[] guesserBallsNums) {
         Set<Integer> set = new HashSet<>();
-        for (int i = 0; i < COUNT_OF_BALLS; i++) {
-            set.add(riddlerBallNums[i]);
-        }
+        int ball = 0;
+        fillSet(set, riddlerBallNums);
         for (int j = 0; j < COUNT_OF_BALLS; j++) {
             if (set.contains(guesserBallsNums[j])) {
-                ball_count++;
+                ball++;
             }
         }
-        if (ball_count > 0) {
-            ball_count -= strike_count;
+        return ball > 0 ? ball - strikeCount : ball;
+    }
+
+    private void fillSet(Set<Integer> set, int[] array) {
+        for (int i = 0; i < COUNT_OF_BALLS; i++) {
+            set.add(array[i]);
         }
     }
 
     private String createOutput() {
         StringBuilder sb = new StringBuilder();
-        sb.append(ball_count == 0 ? "" : ball_count + Output.BALL.getOutput());
-        sb.append(strike_count == 0 ? "" :
-            ball_count == 0 ? strike_count + Output.STRIKE.getOutput() :
-                " " + strike_count + Output.STRIKE.getOutput());
+        sb.append(ballCount == 0 ? "" : ballCount + Output.BALL.getOutput());
+        sb.append(strikeCount == 0 ? "" :
+            ballCount == 0 ? strikeCount + Output.STRIKE.getOutput() :
+                " " + strikeCount + Output.STRIKE.getOutput());
         return "".equals(sb.toString()) ? Output.NOTHING.getOutput() : sb.toString();
     }
 
     private boolean allNotMatched(){
-        if(strike_count == OBJECTIVE_MATCH){
+        if (strikeCount == OBJECTIVE_MATCH) {
             System.out.println(Output.SUCCESS.getOutput());
             return false;
         }
@@ -60,8 +65,8 @@ public class BallsMatch {
     public boolean matchAllBalls(Player riddler, Player guesser) {
         int[] riddlerBallNums = riddler.getBalls().getBallNums();
         int[] guesserBallNums = guesser.getBalls().getBallNums();
-        count_strikes(riddlerBallNums, guesserBallNums);
-        count_balls(riddlerBallNums, guesserBallNums);
+        strikeCount = count_strikes(riddlerBallNums, guesserBallNums);
+        ballCount = count_balls(riddlerBallNums, guesserBallNums);
         System.out.println(createOutput());
         return allNotMatched();
     }
