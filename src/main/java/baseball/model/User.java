@@ -1,7 +1,6 @@
 package baseball.model;
 
-import static baseball.controller.BaseballGuessingGame.COUNT_OF_BALLS;
-
+import baseball.view.Output;
 import camp.nextstep.edu.missionutils.Console;
 
 /**
@@ -11,16 +10,16 @@ import camp.nextstep.edu.missionutils.Console;
 public class User extends Player {
 
     private void validateInput(String input) {
-        try{
+        try {
             Integer.parseInt(input);
-        }catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
     }
 
-    //a constructor like method intended to call multiple times
     @Override
     public void initBalls() {
+        System.out.print(Output.NUMBER_REQUEST.getOutput());
         String input = Console.readLine();
         validateInput(input);
         this.getBalls().setBallNums(Integer.parseInt(input));
