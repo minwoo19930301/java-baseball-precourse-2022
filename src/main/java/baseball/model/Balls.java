@@ -13,8 +13,18 @@ public class Balls {
         return ballNums;
     }
 
-    public void setBallNums(int[] ballNums) {
-        this.ballNums = ballNums;
+    private void validateNum(int fullNum) {
+        if (!(0 <= fullNum && fullNum < Math.pow(10, COUNT_OF_BALLS))) {
+            throw new IllegalArgumentException();
+        }
     }
+
+    public void setBallNums(int fullNum) {
+        validateNum(fullNum);
+        this.ballNums[0] = (fullNum / 100) % 10;
+        this.ballNums[1] = (fullNum / 10) % 10;
+        this.ballNums[2] = fullNum % 10;
+    }
+
 
 }

@@ -6,14 +6,16 @@ package baseball.model;
  */
 public abstract class Player {
 
-    private Balls balls;
+    private Balls balls = new Balls();
+
+    public Player() {
+        initBalls();
+    }
 
     public Balls getBalls() {
         return balls;
     }
 
-    public void setBalls(Balls balls) {
-        this.balls = balls;
-    }
+    public abstract void initBalls();
 
 }
