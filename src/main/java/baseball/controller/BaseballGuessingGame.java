@@ -1,5 +1,6 @@
 package baseball.controller;
 
+
 /**
  * @author: Minwoo Kim
  * @date 2022/10/02
@@ -7,6 +8,7 @@ package baseball.controller;
 
 public class BaseballGuessingGame implements BaseballGame {
 
+    public final static String GAME_LANGUAGE = "KOR";
 
     public BaseballGuessingGame() {
     }
