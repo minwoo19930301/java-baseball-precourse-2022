@@ -2,6 +2,7 @@ package baseball;
 
 import baseball.view.Output;
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -40,5 +41,16 @@ class ApplicationTest extends NsTest {
     void Enum테스트(){
         assertThat(Output.STRIKE.getOutput()).isEqualTo("스트라이크");
     }
+
+    @Test
+    void 숫자생성테스트(){
+        int intInput = 2;
+        int[] nums = new int[3];
+        nums[2] = intInput % 10;
+        nums[1] = (intInput/10)%10;
+        nums[0] = (intInput/100)%10;
+        assertThat(nums).isEqualTo(new int[]{0,0,2});
+    }
+
 
 }
