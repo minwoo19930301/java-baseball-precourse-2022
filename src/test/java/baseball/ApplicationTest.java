@@ -1,6 +1,9 @@
 package baseball;
 
+import baseball.view.Output;
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -32,4 +35,10 @@ class ApplicationTest extends NsTest {
     public void runMain() {
         Application.main(new String[]{});
     }
+
+    @Test
+    void Enum테스트(){
+        assertThat(Output.STRIKE.getOutput()).isEqualTo("스트라이크");
+    }
+
 }
