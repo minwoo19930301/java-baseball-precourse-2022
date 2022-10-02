@@ -1,7 +1,9 @@
 package baseball.model;
 
 import static baseball.controller.BaseballGuessingGame.COUNT_OF_BALLS;
+import static baseball.controller.BaseballGuessingGame.OBJECTIVE_MATCH;
 
+import baseball.view.Output;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -37,10 +39,20 @@ public class BallsMatch {
         }
     }
 
+    private String createOutput() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(ball_count == 0 ? "" : ball_count + Output.BALL.getOutput());
+        sb.append(strike_count == 0 ? "" :
+            ball_count == 0 ? strike_count + Output.STRIKE.getOutput() :
+                " " + strike_count + Output.STRIKE.getOutput());
+        return "".equals(sb.toString()) ? Output.NOTHING.getOutput() : sb.toString();
+    }
+
     public void matchAllBalls(Player riddler, Player guesser) {
         int[] riddlerBallNums = riddler.getBalls().getBallNums();
         int[] guesserBallNums = guesser.getBalls().getBallNums();
         count_strikes(riddlerBallNums, guesserBallNums);
         count_balls(riddlerBallNums, guesserBallNums);
+        System.out.println(createOutput());
     }
 }
